@@ -21,11 +21,11 @@ class HelloControllerTest {
 
     @Test
     void index() throws Exception {
-        assertEquals("Welcome to Tanzu App Platform workshop at GP", controller.index());
+        assertEquals("Welcome to Tanzu App Platform workshop at GP!", controller.index());
 
         mockMvc
             .perform(get("/"))
             .andExpect(status().isOk())
-            .andExpect(content().string("Welcome to Tanzu App Platform workshop at GP"));
+            .andExpect(content().string("Welcome to Tanzu App Platform workshop at GP!"));
     }
 }
