@@ -21,6 +21,7 @@ spec:
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.7.5
         conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -30,7 +31,6 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-          appliveview-sample/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -50,7 +50,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tapbuild.azurecr.io/tanzu/tanzu-supply-chain/tanzu-java-web-app-tap-dev@sha256:d2bdecb58f54a334d4f97e31fd1ca57fd9af9729b397865568b9f6a62473836b
+        image: tapbuild.azurecr.io/tanzu/tanzu-supply-chain/tanzu-java-web-app-tap-dev@sha256:cbbd017f7efa4076ec5f09a77c7784f750214656d67b3da9c573554d76255670
         livenessProbe:
           httpGet:
             path: /livez
